@@ -1,0 +1,253 @@
+/*========================================
+   01. Normalize CSS
+========================================*/
+body {
+   margin: 0;
+   position: relative;
+   @include transition();
+   font-family: 'Work Sans', sans-serif;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: 0;
+   background-color: #fff;
+}
+body.page{
+   margin: 0;
+}
+a {
+   background-color: transparent;
+   outline: none;
+   text-decoration: none;
+   -webkit-transition: all 0.3s ease;
+   -moz-transition: all 0.3s ease;
+   transition: all 0.3s ease;
+}
+
+a:hover {
+   text-decoration: none;
+}
+
+a:active,
+a:hover,
+a:focus {
+   outline-width: 0;
+   outline: none;
+}
+
+img {
+   max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   clear: both;
+   color: #000;
+}
+
+/*h1 {
+   font-weight: 600;
+   font-size: 72px;
+   line-height: 110%;
+
+   @media #{$max1399} {
+      font-size: 56px;
+   }
+   @media #{$max991} {
+      font-size: 42px;
+   }
+}
+
+h2 {
+   font-weight: 600;
+   font-size: 48px;
+   line-height: 120%;
+   text-transform: capitalize;
+
+   @media #{$max1399} {
+      font-size: 42px;
+   }
+   @media #{$max991} {
+      font-size: 36px;
+   }
+}
+
+h3 {
+   font-weight: 500;
+   font-size: 32px;
+   line-height: 120%;
+
+   @media #{$max1399} {
+      font-size: 28px;
+   }
+
+   @media #{$max991} {
+      font-size: 24px;
+   }
+}
+
+h4 {
+   font-weight: 500;
+   font-size: 24px;
+   line-height: 130%;
+
+   @media #{$max991} {
+      font-size: 22px;
+   }
+}
+
+h5 {
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 140%;
+
+   @media #{$max991} {
+      font-size: 18px;
+   }
+}
+
+h6 {
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 140%;
+   text-transform: capitalize;
+}*/
+
+p {
+   font-size: 16px;
+   color: #000;
+   line-height: 150%;
+}
+.font-2{
+   font-size: 14px;
+   line-height: 150%;
+}
+.font-3{
+   font-weight: 300;
+   font-size: 12px;
+   line-height: 150%;
+}
+
+hr {
+   background-color: #bbb;
+   border: 0;
+   height: 1px;
+   margin-bottom: 15px;
+}
+
+ul,
+ol {
+   margin: 0 0 0 25px;
+   padding: 0;
+}
+
+ul {
+   list-style: disc;
+   margin-left: 25px
+}
+
+ol {
+   list-style: decimal;
+   margin-left: 25px;
+}
+
+li>ul,
+li>ol {
+   margin-left: 25px;
+}
+
+dt {
+   line-height: 24px;
+   margin: 0 15px;
+}
+
+dd {
+   margin: 0 15px 15px;
+   line-height: 24px;
+}
+
+table {
+   border-collapse: collapse;
+   margin: 0 0 20px;
+   width: 100%;
+}
+
+thead th {
+   padding-bottom: 5px;
+}
+
+th {
+   padding: 4px;
+   text-align: left;
+   border: 1px solid #ecf0f3;
+}
+
+tr {
+   border-bottom: 1px solid #ecf0f3;
+   border-top: 1px solid #ecf0f3;
+   border-left: 1px solid #ecf0f3;
+}
+
+td {
+   padding: 10px;
+   border: 1px solid #ecf0f3;
+}
+
+/* spacing */
+.ic-py-100{
+   padding: 100px 0;
+}
+.ic-py-80{
+   padding: 80px 0;
+
+   @media #{$max991} {
+      padding: 60px 0;
+   }
+}
+.ic-pt-100{
+   padding-top: 100px;
+}
+.ic-pt-80{
+   padding-top: 80px;
+}
+.ic-pb-100{
+   padding-bottom: 100px;
+}
+.ic-pb-80{
+   padding-bottom: 80px;
+
+   @media #{$max991} {
+      padding-bottom: 60px;
+   }
+}
+.ic-mb-80{
+   margin-bottom: 80px;
+}
+.ic-mb-60{
+   margin-bottom: 60px;
+
+   @media #{$max991} {
+      margin-bottom: 40px;
+   }
+}
+.ic-mb-50{
+   margin-bottom: 50px;
+}
+.ic-mb-40{
+   margin-bottom: 40px;
+}
+.ic-mb-30{
+   margin-bottom: 30px;
+}
+.ic-mb-20{
+   margin-bottom: 20px;
+}
+.ic-mb-10{
+   margin-bottom: 10px;
+}
+
+

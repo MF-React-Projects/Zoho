@@ -1,0 +1,20 @@
+.pm-header-area{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px -4px;
+}
+.nav-link{
+  color: #003DA7;
+  font-weight: 500;
+}
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+  color: #e80000;
+}
+@media only screen and (max-width: 575.98px) {
+  .navbar-brand img{
+    width: 180px;
+  }
+}
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
+}
