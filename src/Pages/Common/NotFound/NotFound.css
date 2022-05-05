@@ -1,0 +1,45 @@
+.pm-404-section{
+    padding: 60px 0;
+    background: #fbfbfb;
+}
+.pm-title {
+    position: relative;
+}
+
+.pm-title h2 {
+    font-size: 180px;
+    color: #D2D2D2;
+    margin-bottom: -2px;
+    font-weight: 900;
+}
+
+.pm-error {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.pm-error p {
+    font-size: 20px;
+    background: #e80000;
+    display: inline-block;
+    color: #fff;
+    padding: 2px 8px 5px 8px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.pm-404-btn p {
+    margin-bottom: 35px;
+}
+
+.pm-404-btn h4 {
+    font-size: 36px;
+    color: #003DA7;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    line-height: 36px;
+    font-weight: 700;
+}
