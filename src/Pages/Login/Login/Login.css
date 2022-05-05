@@ -1,0 +1,30 @@
+.login-wrapper {
+    position: relative;
+    background: #fbfbfb;
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.login-wrapper .ic-login-content h2 {
+    font-size: 48px;
+    line-height: 60px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 320px) {
+    .login-wrapper .ic-login-content h2 {
+        font-size: 32px;
+        line-height: 42px;
+    }
+}
+
+.login-wrapper .ic-login-content h2 span {
+    color: #e80000;
+}
+
+.login-wrapper .ic-login-content p {
+    color: #272727;
+    margin-bottom: 40px;
+}
+

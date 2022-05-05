@@ -1,0 +1,108 @@
+
+.social-login {
+    text-align: center;
+    overflow: hidden;
+}
+
+.social-login h4 {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    line-height: 24px;
+    color: #003DA7;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.social-login h4::after, .social-login h4::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(-1000% - 24px);
+    margin-top: -1px;
+    height: 2px;
+    width: 1000%;
+    background: #003DA7;
+}
+
+.social-login h4::before {
+    left: auto;
+    right: calc(-1000% - 24px);
+}
+
+.social-login ul {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 40px !important;
+}
+
+@media only screen and (max-width: 375px) {
+    .social-login ul {
+        margin-bottom: 10px !important;
+    }
+}
+
+.social-login ul li {
+    margin-right: 20px;
+    -webkit-flex: 0 0 calc(50% - 10px);
+    -ms-flex: 0 0 calc(50% - 10px);
+    flex: 0 0 calc(50% - 10px);
+}
+
+@media only screen and (max-width: 375px) {
+    .social-login ul li {
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.social-login ul li:last-child {
+    margin-right: 0;
+}
+
+.social-login ul li button {
+    height: 56px;
+    width: 100%;
+    line-height: 52px;
+    border-radius: 6px;
+    background: #3b5998;
+    border: 1px solid #3b5998;
+    color: #fff;
+    display: inline-block;
+}
+
+.social-login ul li button i {
+    margin-right: 20px;
+}
+
+.social-login ul li button.social-google {
+    background: #DB3236;
+    border: 1px solid #DB3236;
+    color: #fff;
+}
+
+.social-login ul li button.social-google:hover {
+    color: #DB3236;
+    background: transparent;
+}
+.social-login ul li button.social-github {
+    background: #171515;
+    border: 1px solid #171515;
+    color: #fff;
+}
+
+.social-login ul li button.social-github:hover {
+    color: #171515;
+    background: transparent;
+}
