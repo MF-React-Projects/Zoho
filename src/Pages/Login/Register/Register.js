@@ -4,7 +4,6 @@ import {
     useCreateUserWithEmailAndPassword,
     useUpdateProfile
 } from 'react-firebase-hooks/auth';
-import './Register.css';
 import auth from '../../../firebase.init';
 import SocialLogin from "../SocialLogin/SocialLogin";
 import {Button, Col, Container, Form, Row, Spinner} from "react-bootstrap";

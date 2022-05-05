@@ -7,6 +7,7 @@ import NotFound from "./Pages/Common/NotFound/NotFound";
 import Footer from "./Pages/Common/Footer/Footer";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
+import {ToastContainer} from "react-toastify";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                 <Route path='*' element={<NotFound/>}/>
             </Routes>
             <Footer/>
+            <ToastContainer/>
         </>
     );
 }

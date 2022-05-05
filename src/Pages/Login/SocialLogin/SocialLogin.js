@@ -1,5 +1,4 @@
 import React from 'react';
-import './SocialLogin.css';
 import {useSignInWithGithub, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import {useNavigate} from 'react-router-dom';
