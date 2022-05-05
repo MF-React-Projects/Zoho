@@ -8,6 +8,7 @@ import './Register.css';
 import auth from '../../../firebase.init';
 import SocialLogin from "../SocialLogin/SocialLogin";
 import {Button, Col, Container, Form, Row, Spinner} from "react-bootstrap";
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {

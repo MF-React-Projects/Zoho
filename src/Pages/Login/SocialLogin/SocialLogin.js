@@ -4,10 +4,10 @@ import {useSignInWithGithub, useSignInWithGoogle} from 'react-firebase-hooks/aut
 import auth from '../../../firebase.init';
 import {useNavigate} from 'react-router-dom';
 import Loading from "../../Common/Loading/Loading";
-import {FaGoogle} from "@react-icons/all-files/fa/FaGoogle";
-import {FaGithub} from "@react-icons/all-files/fa/FaGithub";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {FaGoogle} from "@react-icons/all-files/fa/FaGoogle";
+import {FaGithub} from "@react-icons/all-files/fa/FaGithub";
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading,googleError] = useSignInWithGoogle(auth);
