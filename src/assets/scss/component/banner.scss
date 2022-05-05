@@ -6,10 +6,16 @@
 
   .banner-content {
     h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        line-height: 1.2;
-        margin-bottom: 0.5rem;
+      color: #fff;
+      margin-bottom: 30px;
+
+      span{
+        //color: $s_color;
+      }
+    }
+    p{
+      color: #fff;
+      margin-bottom: 30px;
     }
   }
 }
