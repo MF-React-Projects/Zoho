@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {Button, Col, Container, Row} from "react-bootstrap";
+import axios from "axios";
+import {toast} from "react-toastify";
 
 const ProductDetails = () => {
     const {id} = useParams();
@@ -13,8 +15,21 @@ const ProductDetails = () => {
     }, [id]);
     const {_id, image, name, description, price, quantity, supplier} = product;
 
+    //reduce quantity by 1
     const handleDeliver = (id) => {
+        axios.put(`http://localhost:5000/product/${id}`)
+            .then(res => {
+                //new quantity
+                const newQuantity = product.quantity - 1;
+                //update product
+                setProduct({...product, quantity: newQuantity});
 
+                //send alert
+                toast("Product Delivered", {
+                    type: toast.TYPE.SUCCESS
+                })
+            })
+            .catch(err => console.log(err));
     }
 
 
