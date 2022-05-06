@@ -13,12 +13,20 @@ const ManageInventory = () => {
             .catch(err => console.log(err));
     }, []);
 
+    const deleteProduct = (id) => {
+        axios.delete(`http://localhost:5000/products/${id}`)
+            .then(res => {
+                setProducts(products.filter(product => product._id !== id));
+            })
+            .catch(err => console.log(err));
+    }
+
     return (
         <div className='manage-inventories'>
             <Container>
                 <h2 className='text-center mb-5'>Manage Inventories</h2>
                 <Table striped bordered hover>
-                    <thead>
+                    <thead align={'center'} valign={'center'}>
                     <tr>
                         <th>Product</th>
                         <th>Price</th>
@@ -27,7 +35,7 @@ const ManageInventory = () => {
                         <th>Actions</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody align={'center'} valign={'middle'}>
                     {products.map(product => (
                         <tr key={product._id}>
                             <td>
@@ -40,8 +48,8 @@ const ManageInventory = () => {
                             <td>{product.supplier}</td>
                             <td>{product.quantity}</td>
                             <td>
-                                <button className='btn btn-primary'>Edit</button>
-                                <button className='btn btn-danger'>Delete</button>
+                                <button className='btn-default btn-secondary btnSm me-3'>Edit</button>
+                                <button onClick={() => deleteProduct(product._id)} className='btn-default btnSm'>Delete</button>
                             </td>
                         </tr>
                     ))}
