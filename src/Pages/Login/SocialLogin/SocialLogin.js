@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSignInWithGithub, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import Loading from "../../Common/Loading/Loading";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,6 +12,7 @@ const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading,googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
     const navigate = useNavigate();
+    const location = useLocation();
 
     if (googleError || githubError) {
         switch (googleError?.code || githubError?.code) {
@@ -29,8 +30,11 @@ const SocialLogin = () => {
         }
     }
 
+    //redirect user to previous page
+    let from = location.state?.from?.pathname || "/";
+
     if (googleUser || githubUser) {
-        navigate('/');
+        navigate(from, {replace: true});
     }
 
     if (googleLoading || githubLoading) {

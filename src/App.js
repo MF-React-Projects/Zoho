@@ -8,6 +8,8 @@ import Footer from "./Pages/Common/Footer/Footer";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
 import {ToastContainer} from "react-toastify";
+import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
+import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 
 function App() {
     return (
@@ -16,6 +18,11 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/home' element={<Home/>}/>
+                <Route path='/product/:id' element={
+                    <RequireAuth>
+                        <ProductDetails/>
+                    </RequireAuth>
+                }/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='*' element={<NotFound/>}/>

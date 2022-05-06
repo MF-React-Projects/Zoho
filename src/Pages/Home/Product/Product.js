@@ -1,8 +1,11 @@
 import React from 'react';
 import {Button} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 const Product = ({product}) => {
-    const {name, price, image, quantity, supplier, shortDescription} = product;
+    const {_id, name, price, image, quantity, supplier, shortDescription} = product;
+    const navigate = useNavigate();
+
     return (
         <div className='product-item d-flex justify-content-between align-items-center shadow-sm p-3 mb-3'>
             <div className="img-box">
@@ -18,7 +21,7 @@ const Product = ({product}) => {
                 <p>{shortDescription}</p>
             </div>
             <div className='product-right'>
-                <Button className='btn-default'>Update</Button>
+                <Button onClick={() => navigate('/product/'+_id)} className='btn-default'>Update</Button>
             </div>
         </div>
     );
