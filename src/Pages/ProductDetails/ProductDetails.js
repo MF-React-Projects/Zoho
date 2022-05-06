@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import axios from "axios";
 import {toast} from "react-toastify";
@@ -29,7 +29,7 @@ const ProductDetails = () => {
 
                 //send alert
                 toast("Product Delivered", {
-                    type: toast.TYPE.SUCCESS
+                    type: toast.TYPE.SUCCESS,
                 })
             })
             .catch(err => console.log(err));
@@ -45,10 +45,14 @@ const ProductDetails = () => {
                 //update product
                 setProduct({...product, quantity: quantity + parseInt(newQuantity)});
 
+                //reset input
+                productQtyRef.current.value = '';
+
                 //send alert
                 toast("Product Quantity Updated", {
                     type: toast.TYPE.SUCCESS
-                })
+                });
+
             })
             .catch(err => console.log(err));
     }
@@ -68,12 +72,14 @@ const ProductDetails = () => {
                                 <h2>{name}</h2>
                                 <ul className='product-infos list-unstyled ps-0 ms-0 mb-3 d-flex align-items-center justify-content-between'>
                                     <li><b>Price:</b> ${price}</li>
-                                    <li><b>Supplier:</b> {supplier}</li>
                                     <li><b>Quantity:</b> {quantity}</li>
+                                    <li><b>Supplier:</b> {supplier}</li>
                                 </ul>
                                 <p>{description}</p>
-                                <Button className='btn-default btn-secondary btnSm'
-                                        onClick={handleDeliver}>Delivered</Button>
+                                <div className="d-flex align-items-center mt-4">
+                                    <Button className='btn-default btn-secondary btnSm me-3' onClick={handleDeliver}>Delivered</Button>
+                                    <Link to='/manage-inventories' className='btn-default btnSm'>Manage Inventories</Link>
+                                </div>
                             </div>
                         </Col>
                     </Row>
@@ -91,7 +97,7 @@ const ProductDetails = () => {
                                     <Form.Label>Increase Quantity</Form.Label>
                                     <Form.Control ref={productQtyRef} min='0' type="number" placeholder="Enter product quantity" />
                                 </Form.Group>
-                                <Button variant="primary" type="submit">Update</Button>
+                                <Button className='btn-default btnSm' type="submit">Update</Button>
                             </Form>
                         </Col>
                     </Row>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Col, Container, Row} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const Banner = () => {
 
@@ -14,7 +15,7 @@ const Banner = () => {
                                 <p className=""><b>Zoho</b> is an Inventory Management System that
                                     allows you to manage your inventory in a more efficient way and maximize on the
                                     business potentials</p>
-                                <a href="" className="btn-default">View Demo</a>
+                                <Link to='/manage-inventories' className='btn-default'>Manage Inventories</Link>
                             </div>
                         </Col>
                         <Col lg='6'>

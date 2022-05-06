@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Container} from "react-bootstrap";
 import axios from "axios";
 import Product from "../Product/Product";
+import {Link} from "react-router-dom";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -18,6 +19,9 @@ const Products = () => {
                 {
                     products.map(product => <Product key={product._id} product={product}/> )
                 }
+                <div className="text-center">
+                    <Link to='/manage-inventories' className='btn-default mt-5'>Manage Inventories</Link>
+                </div>
             </Container>
         </div>
     );

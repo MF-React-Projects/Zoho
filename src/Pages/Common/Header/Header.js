@@ -25,11 +25,7 @@ const Header = () => {
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="m-auto">
                                 <CustomLink to="/">Home</CustomLink>
-                                <CustomLink to="/">Home</CustomLink>
-                                <CustomLink to="/">Home</CustomLink>
-                                <CustomLink to="/">Home</CustomLink>
-                                <CustomLink to="/">Home</CustomLink>
-                                <CustomLink to="/">Home</CustomLink>
+                                <CustomLink to="/manage-inventories">Manage Inventories</CustomLink>
                             </Nav>
                             <div className="pm-header-right">
                                 {

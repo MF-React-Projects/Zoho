@@ -10,6 +10,7 @@ import Register from "./Pages/Login/Register/Register";
 import {ToastContainer} from "react-toastify";
 import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
+import ManageInventory from "./Pages/ManageInventory/ManageInventory";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                         <ProductDetails/>
                     </RequireAuth>
                 }/>
+                <Route path='/manage-inventories' element={<ManageInventory/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='*' element={<NotFound/>}/>
