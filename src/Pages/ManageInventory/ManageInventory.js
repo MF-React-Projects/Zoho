@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Container, Table} from "react-bootstrap";
 import axios from "axios";
+import {toast} from "react-toastify";
 
 const ManageInventory = () => {
     const [products, setProducts] = useState([]);
@@ -14,11 +15,16 @@ const ManageInventory = () => {
     }, []);
 
     const deleteProduct = (id) => {
-        axios.delete(`http://localhost:5000/products/${id}`)
-            .then(res => {
-                setProducts(products.filter(product => product._id !== id));
-            })
-            .catch(err => console.log(err));
+        //confirm before delete
+        const confirm = window.confirm("Are you sure you want to delete this product?");
+        if(confirm){
+            axios.delete(`http://localhost:5000/products/${id}`)
+                .then(res => {
+                    setProducts(products.filter(product => product._id !== id));
+                    toast.success("Product Deleted Successfully");
+                })
+                .catch(err => console.log(err));
+        }
     }
 
     return (
