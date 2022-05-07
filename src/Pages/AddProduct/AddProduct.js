@@ -5,8 +5,10 @@ import axios from "axios";
 import auth from "../../firebase.init";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {toast} from "react-toastify";
+import {useNavigate} from "react-router-dom";
 
 const AddProduct = () => {
+    const navigate = useNavigate();
     const [user] = useAuthState(auth);
     const {register, formState: {errors}, handleSubmit, reset} = useForm({
         defaultValues: {
@@ -25,15 +27,21 @@ const AddProduct = () => {
             description: data.productDescription,
             userEmail: data.userEmail,
         }
-        axios.post('http://localhost:5000/products', product)
-            .then(res => {
-                console.log(res.data);
-                toast.success('Product added successfully');
+        if(data.productName && data.productPrice && data.productThumb && data.productSupplier && data.productQty && data.productShortDescription && data.productDescription && data.userEmail){
+            axios.post('http://localhost:5000/products', product)
+                .then(res => {
+                    toast.success('Product added successfully');
+                    reset();
 
-            })
-            .catch(err => {
-                console.log(err);
-            })
+                    //navigate to manage inventory page
+                    setTimeout(() => {
+                        navigate('/manage-inventories');
+                    }, 1000);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
     }
 
     return (
@@ -51,9 +59,12 @@ const AddProduct = () => {
                         </Col>
                         <Col lg={4}>
                             <div className='form-group mb-3'>
-                                <input type='number' className='form-control'
-                                       placeholder='Enter product price' {...register("productPrice", {required: true})} />
-                                <small className='text-danger'>{errors.productPrice?.type === 'required' && "Product price is required"}</small>
+                                <input type='number' className='form-control' min='0'
+                                       placeholder='Enter product price' {...register("productPrice", {required: true, min: 0})} />
+                                <small className='text-danger'>
+                                    {errors.productPrice?.type === 'required' && "Product price is required"}
+                                    {errors.productPrice?.type === 'min' && "Product price must be greater than 0"}
+                                </small>
                             </div>
                         </Col>
                         <Col lg={4}>
@@ -74,9 +85,12 @@ const AddProduct = () => {
                         </Col>
                         <Col lg={4}>
                             <div className='form-group mb-3'>
-                                <input type='number' className='form-control'
-                                       placeholder='Enter product quantity' {...register("productQty", {required: true})} />
-                                <small className='text-danger'>{errors.productQty?.type === 'required' && "Product quantity is required"}</small>
+                                <input type='number' className='form-control' min='0'
+                                       placeholder='Enter product quantity' {...register("productQty", {required: true, min: 0})} />
+                                <small className='text-danger'>
+                                    {errors.productQty?.type === 'required' && "Product quantity is required"}
+                                    {errors.productQty?.type === 'min' && "Product quantity must be greater than 0"}
+                                </small>
                             </div>
                         </Col>
                         <Col lg={4}>
