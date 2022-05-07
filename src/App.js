@@ -13,6 +13,7 @@ import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import ManageInventory from "./Pages/ManageInventory/ManageInventory";
 import EditProduct from "./Pages/EditProduct/EditProduct";
 import AddProduct from "./Pages/AddProduct/AddProduct";
+import MyProducts from "./Pages/MyProducts/MyProducts";
 
 function App() {
     return (
@@ -39,6 +40,11 @@ function App() {
                 <Route path='/product/add' element={
                     <RequireAuth>
                         <AddProduct/>
+                    </RequireAuth>
+                }/>
+                <Route path='/my-products' element={
+                    <RequireAuth>
+                        <MyProducts/>
                     </RequireAuth>
                 }/>
                 <Route path='/login' element={<Login/>}/>

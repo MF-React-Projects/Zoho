@@ -30,6 +30,7 @@ const Header = () => {
                                         <>
                                             <CustomLink to="/manage-inventories">Manage Inventories</CustomLink>
                                             <CustomLink to='/product/add'>Add Product</CustomLink>
+                                            <CustomLink to='/my-products'>My Products</CustomLink>
                                         </>
                                         :
                                         ''

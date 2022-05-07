@@ -28,12 +28,15 @@ const EditProduct = () => {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/product/${id}`)
-            .then(res => {
-                setProduct(res.data);
-                reset(res.data);
-            })
-            .catch(err => console.log(err));
+        const getProduct = async () =>{
+            await axios.get(`http://localhost:5000/product/${id}`)
+                .then(res => {
+                    setProduct(res.data);
+                    reset(res.data);
+                })
+                .catch(err => console.log(err));
+        }
+        getProduct();
     }, [id, reset]);
 
     const onSubmit = data => {
