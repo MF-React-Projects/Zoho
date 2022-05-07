@@ -32,7 +32,17 @@ const EditProduct = () => {
             await axios.get(`http://localhost:5000/product/${id}`)
                 .then(res => {
                     setProduct(res.data);
-                    reset(res.data);
+                    const {name, price, image, quantity, supplier, shortDescription, description} = res.data;
+                    reset({
+                        productName: name,
+                        productPrice: price,
+                        productThumb: image,
+                        productQty: quantity,
+                        productSupplier: supplier,
+                        productShortDescription: shortDescription,
+                        productDescription: description,
+                        userEmail: user.email,
+                    });
                 })
                 .catch(err => console.log(err));
         }
