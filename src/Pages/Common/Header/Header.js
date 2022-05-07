@@ -27,7 +27,10 @@ const Header = () => {
                                 <CustomLink to="/">Home</CustomLink>
                                 {
                                     user ?
-                                        <CustomLink to="/manage-inventories">Manage Inventories</CustomLink>
+                                        <>
+                                            <CustomLink to="/manage-inventories">Manage Inventories</CustomLink>
+                                            <CustomLink to='/product/add'>Add Product</CustomLink>
+                                        </>
                                         :
                                         ''
                                 }

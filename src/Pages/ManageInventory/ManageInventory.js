@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {Container, Table} from "react-bootstrap";
 import axios from "axios";
 import {toast} from "react-toastify";
+import {useNavigate} from "react-router-dom";
 
 const ManageInventory = () => {
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
 
     useEffect( () => {
          axios.get("http://localhost:5000/products")
@@ -27,6 +29,10 @@ const ManageInventory = () => {
         }
     }
 
+    const editProduct = (id) => {
+        navigate(`/product/edit/${id}`);
+    }
+
     return (
         <div className='manage-inventories'>
             <Container>
@@ -46,15 +52,15 @@ const ManageInventory = () => {
                         <tr key={product._id}>
                             <td>
                                 <div className="d-flex align-items-center">
-                                    <img src={product.image} alt="product" className="img-fluid" width="40" height="40"/>
-                                    <h6 className="mb-0 ms-3">{product.name}</h6>
+                                    <img onClick={() => navigate('/product/'+product._id)} src={product.image} alt="product" className="img-fluid" width="40" height="40"/>
+                                    <h6 onClick={() => navigate('/product/'+product._id)} className="mb-0 ms-3">{product.name}</h6>
                                 </div>
                             </td>
                             <td>${product.price}</td>
                             <td>{product.supplier}</td>
                             <td>{product.quantity}</td>
                             <td>
-                                <button className='btn-default btn-secondary btnSm me-3'>Edit</button>
+                                <button onClick={() => editProduct(product._id)} className='btn-default btn-secondary btnSm me-3'>Edit</button>
                                 <button onClick={() => deleteProduct(product._id)} className='btn-default btnSm'>Delete</button>
                             </td>
                         </tr>
