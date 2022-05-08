@@ -50,7 +50,7 @@ const Login = () => {
         // Sign in with email and password
         signInWithEmailAndPassword(email, password);
 
-        const {data} = await axios.post('http://localhost:5000/login', {email});
+        const {data} = await axios.post('https://peaceful-castle-36366.herokuapp.com/login', {email});
         localStorage.setItem('accessToken', data.accessToken);
     }
 

@@ -9,7 +9,7 @@ const ManageInventory = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/products", {
+        axios.get("https://peaceful-castle-36366.herokuapp.com/products", {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("accessToken")
             }
@@ -24,7 +24,7 @@ const ManageInventory = () => {
         //confirm before delete
         const confirm = window.confirm("Are you sure you want to delete this product?");
         if (confirm) {
-            axios.delete(`http://localhost:5000/products/${id}`)
+            axios.delete(`https://peaceful-castle-36366.herokuapp.com/products/${id}`)
                 .then(res => {
                     setProducts(products.filter(product => product._id !== id));
                     toast.success("Product Deleted Successfully");

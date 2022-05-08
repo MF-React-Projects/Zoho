@@ -8,7 +8,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/homeProducts', {
+        axios.get('https://peaceful-castle-36366.herokuapp.com/homeProducts', {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("accessToken")
             }

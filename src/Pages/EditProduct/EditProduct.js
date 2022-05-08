@@ -29,7 +29,7 @@ const EditProduct = () => {
 
     useEffect(() => {
         const getProduct = async () =>{
-            await axios.get(`http://localhost:5000/product/${id}`)
+            await axios.get(`https://peaceful-castle-36366.herokuapp.com/product/${id}`)
                 .then(res => {
                     setProduct(res.data);
                     const {name, price, image, quantity, supplier, shortDescription, description, userEmail} = res.data;
@@ -61,7 +61,7 @@ const EditProduct = () => {
             userEmail: data.userEmail,
         }
         if (data.productName && data.productPrice && data.productThumb && data.productSupplier && data.productQty && data.productShortDescription && data.productDescription && data.userEmail) {
-            axios.put(`http://localhost:5000/product/edit/${id}`, product)
+            axios.put(`https://peaceful-castle-36366.herokuapp.com/product/edit/${id}`, product)
                 .then(res => {
                     toast.success("Product Updated Successfully");
 

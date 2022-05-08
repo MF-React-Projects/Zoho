@@ -28,7 +28,7 @@ const AddProduct = () => {
             userEmail: data.userEmail,
         }
         if(data.productName && data.productPrice && data.productThumb && data.productSupplier && data.productQty && data.productShortDescription && data.productDescription && data.userEmail){
-            axios.post('http://localhost:5000/products', product)
+            axios.post('https://peaceful-castle-36366.herokuapp.com/products', product)
                 .then(res => {
                     toast.success('Product added successfully');
                     reset();

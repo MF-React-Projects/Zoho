@@ -10,7 +10,7 @@ const ProductDetails = () => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://peaceful-castle-36366.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id]);
@@ -18,7 +18,7 @@ const ProductDetails = () => {
 
     //reduce quantity by 1
     const handleDeliver = () => {
-        axios.put(`http://localhost:5000/product/${_id}`,{
+        axios.put(`https://peaceful-castle-36366.herokuapp.com/product/${_id}`,{
             quantity: quantity - 1
         })
             .then(res => {
@@ -38,7 +38,7 @@ const ProductDetails = () => {
     const handleIncreaseQty = (e) => {
         e.preventDefault();
         const newQuantity = productQtyRef.current.value;
-        axios.put(`http://localhost:5000/product/${_id}`, {
+        axios.put(`https://peaceful-castle-36366.herokuapp.com/product/${_id}`, {
             quantity: quantity + parseInt(newQuantity),
         })
             .then(res => {
