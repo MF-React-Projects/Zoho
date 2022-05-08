@@ -8,11 +8,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get('https://peaceful-castle-36366.herokuapp.com/homeProducts', {
-            headers: {
-                "Authorization": "Bearer " + localStorage.getItem("accessToken")
-            }
-        })
+        axios.get('https://peaceful-castle-36366.herokuapp.com/homeProducts')
             .then(res => setProducts(res.data))
             .catch(error => console.log(error))
     }, [])

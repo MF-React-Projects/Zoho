@@ -9,11 +9,7 @@ const ManageInventory = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("https://peaceful-castle-36366.herokuapp.com/products", {
-            headers: {
-                "Authorization": "Bearer " + localStorage.getItem("accessToken")
-            }
-        })
+        axios.get("https://peaceful-castle-36366.herokuapp.com/products")
             .then(res => {
                 setProducts(res.data);
             })
