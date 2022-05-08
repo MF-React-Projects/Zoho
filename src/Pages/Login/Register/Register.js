@@ -9,6 +9,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import {Button, Col, Container, Form, Row, Spinner} from "react-bootstrap";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 const Register = () => {
     const nameRef = useRef('');
@@ -58,6 +59,9 @@ const Register = () => {
         //Create user
         createUserWithEmailAndPassword(email, password);
 
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+        localStorage.setItem('accessToken', data.accessToken);
+
         if(updateError){
             switch (updateError.code) {
                 case 'auth/requires-recent-login':
@@ -94,9 +98,6 @@ const Register = () => {
                     <Col lg={6}>
                         <div className="ic-login-content">
                             <h2 className='text-center font-bold'><span>Register</span></h2>
-                            <p className='text-center'>
-                                Join my community and get premium services.
-                            </p>
                             <Form onSubmit={handleRegister}>
                                 <Form.Group className="mb-3" controlId="formName">
                                     <Form.Label>Name</Form.Label>

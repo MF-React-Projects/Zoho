@@ -51,36 +51,36 @@ const Blogs = () => {
                     <tr>
                         <td>
                             <p>
-                                <b>SQL</b> is a relational database management system (RDBMS) that is used to create and manage data in a structured way.
+                                SQL is a relational database management system (RDBMS) that is used to create and manage data in a structured way.
                             </p>
                         </td>
                         <td>
                             <p>
-                                <b>NoSQL</b> is a database that stores data in a non-structured way.
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                <b>SQL</b> use structured query language and have a predefined schema.
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                <b>NoSQL</b> databases have dynamic schemas for unstructured data.
+                                NoSQL is a database that stores data in a non-structured way.
                             </p>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <p>
-                                <b>SQL</b> databases are vertically scalable table based databases.
+                                SQL use structured query language and have a predefined schema.
                             </p>
                         </td>
                         <td>
                             <p>
-                                <b>NoSQL</b> databases are horizontally scalable.
+                                NoSQL databases have dynamic schemas for unstructured data.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                SQL databases are vertically scalable table based databases.
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                NoSQL databases are horizontally scalable.
                             </p>
                         </td>
                     </tr>

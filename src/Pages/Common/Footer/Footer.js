@@ -7,13 +7,6 @@ const Footer = () => {
 
     return (
         <footer className='footer'>
-            <div className="footer-top">
-                <Container>
-                    <Row>
-
-                    </Row>
-                </Container>
-            </div>
             <div className="footer-copyright">
                 <Container>
                     <Row>

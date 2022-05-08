@@ -8,7 +8,11 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/homeProducts')
+        axios.get('http://localhost:5000/homeProducts', {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+            }
+        })
             .then(res => setProducts(res.data))
             .catch(error => console.log(error))
     }, [])

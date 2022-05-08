@@ -13,7 +13,11 @@ const MyProducts = () => {
 
     useEffect(() => {
         const getProduct = async () => {
-            await axios.get('http://localhost:5000/myProducts?email=' + user.email)
+            await axios.get('http://localhost:5000/myProducts?email=' + user.email, {
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                }
+            })
                 .then(res => setProducts(res.data))
                 .catch(err => console.log(err));
         }

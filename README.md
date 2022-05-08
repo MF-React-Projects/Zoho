@@ -1,6 +1,29 @@
-# Getting Started with Create React App
+# Zoho
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Zoho is an Inventory Management System that allows you to manage your inventory in a more efficient way and maximize on the business potentials.
+
+## Live Link
+### [Zoho](https://zoho-26c66.firebaseapp.com/)
+
+## Site Features
+
+* Inventory Management Website
+* Manage Products
+* Add Products
+* Edit Products
+* User Products
+* Stylized 404 Page
+* Quick social login
+* Packages Use
+    * [React Bootstrap](https://react-bootstrap.github.io/)
+    * [React Router](https://reactrouter.com/)
+    * [Firebase](https://firebase.google.com/)
+    * [React Firebase Hooks](https://github.com/CSFrequency/react-firebase-hooks)
+    * [React Icons](https://react-icons.github.io/react-icons/)
+    * [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+    * [Axios](https://axios-http.com/docs/intro)
+    * [Node Sass](https://www.npmjs.com/package/node-sass)
+    * [React Hook Form](https://react-hook-form.com/)
 
 ## Available Scripts
 

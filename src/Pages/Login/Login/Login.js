@@ -6,6 +6,7 @@ import auth from '../../../firebase.init';
 import SocialLogin from "../SocialLogin/SocialLogin";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 const Login = () => {
     const emailRef = useRef('');
@@ -20,7 +21,7 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
@@ -47,7 +48,10 @@ const Login = () => {
         }
 
         // Sign in with email and password
-        signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(email, password);
+
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+        localStorage.setItem('accessToken', data.accessToken);
     }
 
     const navigateRegister = () => {
@@ -78,9 +82,6 @@ const Login = () => {
                     <Col lg={6}>
                         <div className="ic-login-content">
                             <h2 className='text-center font-bold'><span>Login</span></h2>
-                            <p className='text-center'>
-                                Join my community and get premium services.
-                            </p>
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Label>Email address</Form.Label>

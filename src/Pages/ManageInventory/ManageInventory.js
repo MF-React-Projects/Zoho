@@ -8,8 +8,12 @@ const ManageInventory = () => {
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
-    useEffect( () => {
-         axios.get("http://localhost:5000/products")
+    useEffect(() => {
+        axios.get("http://localhost:5000/products", {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+            }
+        })
             .then(res => {
                 setProducts(res.data);
             })
@@ -19,7 +23,7 @@ const ManageInventory = () => {
     const deleteProduct = (id) => {
         //confirm before delete
         const confirm = window.confirm("Are you sure you want to delete this product?");
-        if(confirm){
+        if (confirm) {
             axios.delete(`http://localhost:5000/products/${id}`)
                 .then(res => {
                     setProducts(products.filter(product => product._id !== id));
@@ -38,7 +42,9 @@ const ManageInventory = () => {
             <Container>
                 <div className="d-flex align-items-center justify-content-between mb-5">
                     <h2 className='text-center mb-0'>Manage Inventories</h2>
-                    <button className='btn-default btn-secondary btnSm' onClick={()=> navigate('/product/add')}>Add Product</button>
+                    <button className='btn-default btn-secondary btnSm' onClick={() => navigate('/product/add')}>Add
+                        Product
+                    </button>
                 </div>
                 <Table striped bordered hover>
                     <thead align={'center'} valign={'center'}>
@@ -55,16 +61,22 @@ const ManageInventory = () => {
                         <tr key={product._id}>
                             <td>
                                 <div className="d-flex align-items-center">
-                                    <img onClick={() => navigate('/product/'+product._id)} src={product.image} alt="product" className="img-fluid" width="40" height="40"/>
-                                    <h6 onClick={() => navigate('/product/'+product._id)} className="mb-0 ms-3">{product.name}</h6>
+                                    <img onClick={() => navigate('/product/' + product._id)} src={product.image}
+                                         alt="product" className="img-fluid" width="40" height="40"/>
+                                    <h6 onClick={() => navigate('/product/' + product._id)}
+                                        className="mb-0 ms-3">{product.name}</h6>
                                 </div>
                             </td>
                             <td>${product.price}</td>
                             <td>{product.supplier}</td>
                             <td>{product.quantity}</td>
                             <td>
-                                <button onClick={() => editProduct(product._id)} className='btn-default btn-secondary btnSm me-3'>Edit</button>
-                                <button onClick={() => deleteProduct(product._id)} className='btn-default btnSm'>Delete</button>
+                                <button onClick={() => editProduct(product._id)}
+                                        className='btn-default btn-secondary btnSm me-3'>Edit
+                                </button>
+                                <button onClick={() => deleteProduct(product._id)}
+                                        className='btn-default btnSm'>Delete
+                                </button>
                             </td>
                         </tr>
                     ))}
