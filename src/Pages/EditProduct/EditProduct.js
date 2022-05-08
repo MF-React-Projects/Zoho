@@ -13,7 +13,7 @@ const EditProduct = () => {
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
 
-    const {name, price, image, quantity, supplier, shortDescription, description} = product;
+    const {name, price, image, quantity, supplier, shortDescription, description, userEmail} = product;
     const {register, formState: {errors}, handleSubmit, reset} = useForm({
         defaultValues: {
             productName: name,
@@ -23,7 +23,7 @@ const EditProduct = () => {
             productSupplier: supplier,
             productShortDescription: shortDescription,
             productDescription: description,
-            userEmail: user.email,
+            userEmail: userEmail ? userEmail : user.email,
         }
     });
 
@@ -32,7 +32,7 @@ const EditProduct = () => {
             await axios.get(`http://localhost:5000/product/${id}`)
                 .then(res => {
                     setProduct(res.data);
-                    const {name, price, image, quantity, supplier, shortDescription, description} = res.data;
+                    const {name, price, image, quantity, supplier, shortDescription, description, userEmail} = res.data;
                     reset({
                         productName: name,
                         productPrice: price,
@@ -41,7 +41,7 @@ const EditProduct = () => {
                         productSupplier: supplier,
                         productShortDescription: shortDescription,
                         productDescription: description,
-                        userEmail: user.email,
+                        userEmail: userEmail ? userEmail : user.email,
                     });
                 })
                 .catch(err => console.log(err));
@@ -64,7 +64,11 @@ const EditProduct = () => {
             axios.put(`http://localhost:5000/product/edit/${id}`, product)
                 .then(res => {
                     toast.success("Product Updated Successfully");
-                    navigate("/products");
+
+                    //navigate to manage inventory page
+                    setTimeout(() => {
+                        navigate('/manage-inventories');
+                    }, 1000);
                 })
                 .catch(err => console.log(err));
         }
@@ -132,8 +136,7 @@ const EditProduct = () => {
                         <Col lg={4}>
                             <div className='form-group mb-3'>
                                 <input type='email' className='form-control'
-                                       placeholder='Enter your email' {...register("userEmail", {required: true})}
-                                       readOnly/>
+                                       placeholder='Enter your email' {...register("userEmail", {required: true})}/>
                                 <small
                                     className='text-danger'>{errors.userEmail?.type === 'required' && "Email is required"}</small>
                             </div>

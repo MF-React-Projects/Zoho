@@ -35,7 +35,7 @@ const Header = () => {
                                         :
                                         ''
                                 }
-
+                                <CustomLink to="/blogs">Blogs</CustomLink>
                             </Nav>
                             <div className="pm-header-right">
                                 {

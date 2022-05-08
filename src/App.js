@@ -14,6 +14,7 @@ import ManageInventory from "./Pages/ManageInventory/ManageInventory";
 import EditProduct from "./Pages/EditProduct/EditProduct";
 import AddProduct from "./Pages/AddProduct/AddProduct";
 import MyProducts from "./Pages/MyProducts/MyProducts";
+import Blogs from "./Pages/Blogs/Blogs";
 
 function App() {
     return (
@@ -47,6 +48,7 @@ function App() {
                         <MyProducts/>
                     </RequireAuth>
                 }/>
+                <Route path='/blogs' element={<Blogs/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='*' element={<NotFound/>}/>
