@@ -12,7 +12,7 @@ const ManageInventory = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/products?page=${page}&limit=${limit}`)
+        axios.get(`https://peaceful-castle-36366.herokuapp.com/products?page=${page}&limit=${limit}`)
             .then(res => {
                 setProducts(res.data);
             })
@@ -20,7 +20,7 @@ const ManageInventory = () => {
     }, [page, limit]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/productCount') //fetching the number of products
+        fetch('https://peaceful-castle-36366.herokuapp.com/productCount') //fetching the number of products
             .then(res => res.json())
             .then(data => {
                 setPageCount(Math.ceil(data.count / limit));
