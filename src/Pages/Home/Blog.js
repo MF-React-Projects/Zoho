@@ -5,7 +5,7 @@ const Blog = ({blog}) => {
     const {title, thumbnail, date, tags} = blog;
     return (
         <Col lg={4}>
-            <div className="blog-item">
+            <div className="blog-item mb-4">
                 <div className="blog-thumb">
                     <img src={thumbnail} alt="blog-thumb" className='img-fluid'/>
                     <div className="post-date">{date}</div>

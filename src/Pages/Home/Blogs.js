@@ -15,11 +15,14 @@ const Blogs = () => {
         <section className="home-blog-section section-bg py-80">
             <Container>
                 <SectionHeader badge={'News Feeds'} title={'Latest News'}/>
-                <Row className='mb-5'>
+                <Row>
                     {
                         blogs.map(blog => <Blog key={blog._id} blog={blog}/>)
                     }
                 </Row>
+                <div className="text-center">
+                    <button className='btn-default mt-5' onClick={() => navigate('/blogs')}>View All News</button>
+                </div>
             </Container>
         </section>
     );

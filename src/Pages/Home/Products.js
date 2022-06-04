@@ -3,6 +3,7 @@ import {Container} from "react-bootstrap";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import Product from "./Product";
+import SectionHeader from "../Common/SectionHeader";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -16,6 +17,7 @@ const Products = () => {
     return (
         <div className='products'>
             <Container>
+                <SectionHeader badge={'New Arival'} title={'Our Latest Products'}/>
                 {
                     products.map(product => <Product key={product._id} product={product}/> )
                 }
