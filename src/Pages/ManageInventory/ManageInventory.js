@@ -38,9 +38,7 @@ const ManageInventory = () => {
             <Container>
                 <div className="d-flex align-items-center justify-content-between mb-5">
                     <h2 className='text-center mb-0'>Manage Inventories</h2>
-                    <button className='btn-default btn-secondary btnSm' onClick={() => navigate('/product/add')}>Add
-                        Product
-                    </button>
+                    <button className='btn-default btn-secondary btnSm' onClick={() => navigate('/product/add')}>Add Product</button>
                 </div>
                 <Table striped bordered hover>
                     <thead align={'center'} valign={'center'}>

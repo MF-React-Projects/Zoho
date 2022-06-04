@@ -1,0 +1,55 @@
+.section-header {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-header .section-title {
+  font-size: 52px;
+  line-height: 60px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+  color: $p_color;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 575.98px) {
+  .section-header .section-title {
+    font-size: 42px;
+    line-height: 50px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .section-header .section-title {
+    font-size: 36px;
+  }
+}
+
+.section-header .section-title.font-36 {
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: 0;
+}
+
+@media only screen and (max-width: 575.98px) {
+  .section-header .section-title.font-36 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+.section-header .badge {
+  font-size: 16px;
+  padding: 3px 10px;
+  background: $s_color;
+  color: #fff;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+.section-header p {
+  max-width: 500px;
+  margin: 15px auto 0;
+}

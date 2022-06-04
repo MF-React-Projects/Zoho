@@ -1,12 +1,107 @@
-.blog-section{
-  padding: 80px 0;
+
+@media only screen and (max-width: 991.98px) {
+  .blog-item {
+    margin-bottom: 40px;
+  }
 }
+
+.blog-item .blog-thumb {
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-item .blog-thumb img {
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.blog-item .blog-thumb .post-date {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  padding: 5px 10px;
+  background: #fff;
+  border-radius: 3px;
+  color: $p_color;
+  z-index: 1;
+}
+
+.blog-item .blog-thumb::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 0;
+  height: 100%;
+  transition: width .4s;
+  background: $p_color;
+  opacity: .7;
+}
+
+.blog-item .blog-content {
+  padding-top: 10px;
+}
+
+@media only screen and (max-width: 1199.98px) {
+  .blog-item .blog-content .blog-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+.blog-item:hover .blog-thumb::after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+.blog-item:hover .blog-thumb img {
+  -webkit-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  -o-transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+/* --------- * Post Meta ---------*/
+.post-meta {
+  margin: 0 0 5px 0;
+}
+
+.post-meta li {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+}
+
+.post-meta li::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 6px;
+  background: #042825;
+  top: 50%;
+  right: -14px;
+}
+
+.post-meta li:last-child {
+  margin-right: 0;
+}
+
+.post-meta li:last-child::after {
+  display: none;
+}
+
 .question-header{
   margin-bottom: 40px;
-  color:#e80000;
+  color: $p_color;
 }
 
 .question-title{
-  color:#003DA7;
+  color:$s_color;
   margin-bottom: 20px;
+}
+.blog-section p{
+  font-size: 18px;
+  line-height: 30px;
 }

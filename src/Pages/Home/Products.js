@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Container} from "react-bootstrap";
 import axios from "axios";
-import Product from "../Product/Product";
 import {Link} from "react-router-dom";
+import Product from "./Product";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
