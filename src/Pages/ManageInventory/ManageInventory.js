@@ -1,20 +1,31 @@
 import React, {useEffect, useState} from 'react';
-import {Container, Table} from "react-bootstrap";
+import {Container, Table, Pagination} from "react-bootstrap";
 import axios from "axios";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 
 const ManageInventory = () => {
     const [products, setProducts] = useState([]);
+    const [page, setPage] = useState(0);
+    const [limit, setLimit] = useState(5);
+    const [pageCount, setPageCount] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("https://peaceful-castle-36366.herokuapp.com/products")
+        axios.get(`http://localhost:5000/products?page=${page}&limit=${limit}`)
             .then(res => {
                 setProducts(res.data);
             })
             .catch(err => console.log(err));
-    }, []);
+    }, [page, limit]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/productCount') //fetching the number of products
+            .then(res => res.json())
+            .then(data => {
+                setPageCount(Math.ceil(data.count / limit));
+            });
+    }, [limit]);
 
     const deleteProduct = (id) => {
         //confirm before delete
@@ -32,13 +43,25 @@ const ManageInventory = () => {
     const editProduct = (id) => {
         navigate(`/product/edit/${id}`);
     }
+    console.log(pageCount)
+    let items = [];
+    for (let number = 1; number <= pageCount; number++) {
+
+        items.push(
+            <Pagination.Item key={number} active={number === page + 1} onClick={() => setPage(number - 1)}>
+                {number}
+            </Pagination.Item>,
+        );
+    }
 
     return (
         <div className='manage-inventories'>
             <Container>
                 <div className="d-flex align-items-center justify-content-between mb-5">
                     <h2 className='text-center mb-0'>Manage Inventories</h2>
-                    <button className='btn-default btn-secondary btnSm' onClick={() => navigate('/product/add')}>Add Product</button>
+                    <button className='btn-default btn-secondary btnSm' onClick={() => navigate('/product/add')}>Add
+                        Product
+                    </button>
                 </div>
                 <Table striped bordered hover>
                     <thead align={'center'} valign={'center'}>
@@ -76,6 +99,19 @@ const ManageInventory = () => {
                     ))}
                     </tbody>
                 </Table>
+                <div className="d-flex align-items-center justify-content-center mt-4">
+                    {pageCount > 1 && <Pagination className={'justify-content-center ms-0 me-3'}>{items}</Pagination>}
+                    <div className="d-flex align-items-center">
+                        <span>Per Page:</span>
+                        <select onClick={event => setLimit(event.target.value)} className={'form-control mb-0 ms-2'}
+                                style={{width: '100px'}}>
+                            <option value='5' selected>5</option>
+                            <option value='10'>10</option>
+                            <option value='15'>15</option>
+                            <option value='20'>20</option>
+                        </select>
+                    </div>
+                </div>
             </Container>
         </div>
     );
