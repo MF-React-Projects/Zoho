@@ -12,7 +12,7 @@ const ManageInventory = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`https://peaceful-castle-36366.herokuapp.com/products?page=${page}&limit=${limit}`)
+        axios.get(`https://zoho.onrender.com/products?page=${page}&limit=${limit}`)
             .then(res => {
                 setProducts(res.data);
             })
@@ -20,7 +20,7 @@ const ManageInventory = () => {
     }, [page, limit]);
 
     useEffect(() => {
-        fetch('https://peaceful-castle-36366.herokuapp.com/productCount') //fetching the number of products
+        fetch('https://zoho.onrender.com/productCount') //fetching the number of products
             .then(res => res.json())
             .then(data => {
                 setPageCount(Math.ceil(data.count / limit));
@@ -31,7 +31,7 @@ const ManageInventory = () => {
         //confirm before delete
         const confirm = window.confirm("Are you sure you want to delete this product?");
         if (confirm) {
-            axios.delete(`https://peaceful-castle-36366.herokuapp.com/products/${id}`)
+            axios.delete(`https://zoho.onrender.com/products/${id}`)
                 .then(res => {
                     setProducts(products.filter(product => product._id !== id));
                     toast.success("Product Deleted Successfully");

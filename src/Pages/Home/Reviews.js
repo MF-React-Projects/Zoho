@@ -7,7 +7,7 @@ import Loading from "../Common/Loading/Loading";
 
 const Reviews = () => {
     const {data: reviews, isLoading, isError} = useQuery('reviews', () => {
-        return fetch('https://peaceful-castle-36366.herokuapp.com/reviews?limit=3')
+        return fetch('https://zoho.onrender.com/reviews?limit=3')
             .then(res => res.json())
     });
 

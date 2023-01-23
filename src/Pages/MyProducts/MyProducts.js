@@ -13,7 +13,7 @@ const MyProducts = () => {
 
     useEffect(() => {
         const getProduct = async () => {
-            await axios.get('https://peaceful-castle-36366.herokuapp.com/myProducts?email=' + user.email, {
+            await axios.get('https://zoho.onrender.com/myProducts?email=' + user.email, {
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("accessToken")
                 }
@@ -28,7 +28,7 @@ const MyProducts = () => {
         //confirm before delete
         const confirm = window.confirm("Are you sure you want to delete this product?");
         if(confirm){
-            axios.delete(`https://peaceful-castle-36366.herokuapp.com/products/${id}`)
+            axios.delete(`https://zoho.onrender.com/products/${id}`)
                 .then(res => {
                     setProducts(products.filter(product => product._id !== id));
                     toast.success("Product Deleted Successfully");

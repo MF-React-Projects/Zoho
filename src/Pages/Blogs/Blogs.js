@@ -6,7 +6,7 @@ import {useQuery} from "react-query";
 import Loading from "../Common/Loading/Loading";
 
 const Blogs = () => {
-    const {data: blogs, isLoading} = useQuery('blogs', () => fetch('https://peaceful-castle-36366.herokuapp.com/blogs').then(res => res.json()));
+    const {data: blogs, isLoading} = useQuery('blogs', () => fetch('https://zoho.onrender.com/blogs').then(res => res.json()));
     if(isLoading) return <Loading/>
 
     return (
